@@ -16,12 +16,7 @@ const Image = styled.img`
   position: absolute;
   top: ${props => props.top}px;
   left: ${props => props.left}px;
-  user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+  pointer-events: none
 `;
 
 function App() {
