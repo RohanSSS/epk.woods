@@ -31,8 +31,8 @@ function App() {
 
   const handleClick = (event) => {
     console.log('click handled')
-    const x = event.clientX;
-    const y = event.clientY;
+    const x = event.clientX - 64;
+    const y = event.clientY - 64;
     setPosTop(posTop => [...posTop, y]);
     setPosLeft(posLeft => [...posLeft, x]);
   }
