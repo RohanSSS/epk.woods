@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import woods from './assets/woods_1.jpg'
 import epk from './assets/epk.png';
 
-import tempAudio from './assets/temp.mp3';
+import audioClips from './asset_import.js';
 
 const Container = styled.div`
   height: 100vh;
@@ -26,7 +26,6 @@ function App() {
   const [posTop, setPosTop] = React.useState([]);
   const [posLeft, setPosLeft] = React.useState([]);
 
-  const audio = new Audio(tempAudio);
 
   const handleClick = (event) => {
     console.log('click handled')
@@ -34,7 +33,7 @@ function App() {
     const y = event.clientY - 64;
     setPosTop(posTop => [...posTop, y]);
     setPosLeft(posLeft => [...posLeft, x]);
-    audio.play();
+    audioClips[Math.floor(Math.random() * Math.floor(audioClips.length))].play();
   }
 
   return (
