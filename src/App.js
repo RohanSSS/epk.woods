@@ -24,8 +24,8 @@ const Image = styled.img`
 function App() {
 
   const [currentPos, setCurrentPos] = React.useState([]);
-  const [posTop, setPosTop] = React.useState([]);
-  const [posLeft, setPosLeft] = React.useState([]);
+  const [posX, setPosX] = React.useState([]);
+  const [posY, setPosY] = React.useState([]);
   const [isMouseDown, setIsMouseDown] = React.useState(false);
 
   const handleMouseMove = (event) => {
@@ -33,8 +33,8 @@ function App() {
     const y = event.clientY - 64;
     setCurrentPos([x, y]);
     if (isMouseDown === true) {
-      setPosTop(posTop => [...posTop, currentPos[1]]);
-      setPosLeft(posLeft => [...posLeft, currentPos[0]]);
+      setPosX(posLeft => [...posX, currentPos[0]]);
+      setPosY(posY => [...posY, currentPos[1]]);
       audioClips[Math.floor(Math.random() * Math.floor(audioClips.length))].play();
     }
   }
@@ -49,17 +49,17 @@ function App() {
 
   const handleClick = (event) => {
     console.log('click handled')
-    setPosTop(posTop => [...posTop, currentPos[1]]);
-    setPosLeft(posLeft => [...posLeft, currentPos[0]]);
+    setPosX(posX => [...posX, currentPos[0]]);
+    setPosY(posY => [...posY, currentPos[1]]);
     audioClips[Math.floor(Math.random() * Math.floor(audioClips.length))].play();
   }
 
   return (
     <div className="App">
       <Container onClick={handleClick} onMouseMove={handleMouseMove} onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
-        {posTop.map((pt, i) => {
-          const pl = posLeft[i];
-          return <Image src={epk} top={pt} left={pl} />
+        {posX.map((x, i) => {
+          const y = posY[i];
+          return <Image src={epk} top={y} left={x} />
         })}
       </Container>
     </div>
