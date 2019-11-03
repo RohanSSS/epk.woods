@@ -33,7 +33,7 @@ function App() {
     const y = event.clientY - 64;
     setCurrentPos([x, y]);
     if (isMouseDown === true) {
-      setPosX(posLeft => [...posX, currentPos[0]]);
+      setPosX(posX => [...posX, currentPos[0]]);
       setPosY(posY => [...posY, currentPos[1]]);
       audioClips[Math.floor(Math.random() * Math.floor(audioClips.length))].play();
     }
